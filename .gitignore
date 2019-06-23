@@ -1,0 +1,12 @@
+htmlcov/*
+*.pyc
+*~
+*.swp
+.coverage
+.DS_Store
+settings.py
+*.log
+.idea
+tests/contracts/pacts/*.json
+.vscode
+testenv/*
