@@ -1,10 +1,10 @@
 import datetime
 from marshmallow import Schema, fields, pre_load, validate
-from . import db
 from . import ma
+from . import db
 
 
-class Brands(db.Model):
+class Brand(db.Model):
     """
     Brand Model
     """
@@ -37,4 +37,3 @@ class Brands(db.Model):
 class BrandSchema(ma.Schema):
     id = fields.Integer()
     name = fields.String()
-

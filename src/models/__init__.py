@@ -7,3 +7,4 @@ db = SQLAlchemy()
 import Brand
 import Category
 import Product
+
