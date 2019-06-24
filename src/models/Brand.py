@@ -22,16 +22,24 @@ class Brand(db.Model):
     products = db.relationship('Product', backref="brands", lazy='dynamic')
 
     # class constructor
-    def __init__(self, data):
+    def __init__(self, name):
         """
         Class constructor
         """
-        self.name = data.get('name')
+        # self.name = data.get('name')
+        self.name = name
         self.created_at = datetime.datetime.utcnow()
         self.modified_at = datetime.datetime.utcnow()
 
     def __repr(self):
         return '<id {}>'.format(self.id)
+
+    @property
+    def serialize(self):
+        return {
+            'name': self.name,
+            'id': self.id,
+        }
 
 
 class BrandSchema(ma.Schema):
