@@ -24,3 +24,18 @@ def save_brand():
     db.session.commit()
 
     return "Brand added, brand id = {}".format(brand.id)
+
+
+def update_brand(brand_id):
+    name = request.form.get('name')
+    brand = Brand.Brand.query.get(brand_id)
+    brand.name = name
+    db.session.add(brand)
+    db.session.commit()
+    return "Brand Updated"
+
+
+def delete_brand(brand_id):
+    db.session.delete(brand_id)
+    db.session.commit()
+    return "Brand deleted"

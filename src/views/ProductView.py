@@ -5,5 +5,4 @@ from src.models import Brand
 
 def get_brands():
     brands = Brand.Brand.query.all()
-    return json.dumps(brands)
-    # return jsonify([e.serialize() for e in brands])
+    return jsonify([e.serialize() for e in brands])

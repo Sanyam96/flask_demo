@@ -37,8 +37,8 @@ class Brand(db.Model):
     @property
     def serialize(self):
         return {
-            'name': self.name,
             'id': self.id,
+            'name': self.name
         }
 
 
