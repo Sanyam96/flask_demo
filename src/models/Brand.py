@@ -1,6 +1,7 @@
 import datetime
 from marshmallow import Schema, fields, pre_load, validate
 from . import db
+from . import ma
 
 
 class Brands(db.Model):
@@ -14,6 +15,12 @@ class Brands(db.Model):
     created_at = db.Column(db.DateTime)
     modified_at = db.Column(db.DateTime)
 
+    # One to Many relationship between Brand and Products
+    """
+    Each product belongs to a single brand but every brands may multiple products
+    """
+    products = db.relationship('Product', backref="brands", lazy='dynamic')
+
     # class constructor
     def __init__(self, data):
         """
@@ -25,4 +32,9 @@ class Brands(db.Model):
 
     def __repr(self):
         return '<id {}>'.format(self.id)
+
+
+class BrandSchema(ma.Schema):
+    id = fields.Integer()
+    name = fields.String()
 

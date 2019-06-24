@@ -16,8 +16,12 @@ class Product(db.Model):
     discount = db.Column(db.Integer, nullable=True)
     created_at = db.Column(db.DateTime)
     modified_at = db.Column(db.DateTime)
+
+    # Foreign Keys
     category_id = db.Column(db.Integer, db.ForeignKey('brands.id'), nullable=False)
-    brand_id = db.Column(db.Integer, db.ForeignKey('categories.is'), nullable=False)
+    brand_id = db.Column(db.Integer, db.ForeignKey('categories.id'), nullable=False)
+    # category = db.relationship('Category', backref=db.backref('products', lazy='dynamic'))
+    # brand = db.relationship('Brand', backref=db.backref('products', lazy='dynamic'))
 
     # class constructor
     def __init__(self, data):
@@ -34,3 +38,4 @@ class Product(db.Model):
 
     def __repr(self):
         return '<id {}>'.format(self.id)
+
