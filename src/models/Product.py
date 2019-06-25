@@ -24,15 +24,35 @@ class Product(db.Model):
     # brand = db.relationship('Brand', backref=db.backref('products', lazy='dynamic'))
 
     # class constructor
-    def __init__(self, data):
+    # def __init__(self, data):
+    #     """
+    #     Class constructor
+    #     """
+    #     self.name = data.get('name')
+    #     self.price = data.get('price')
+    #     self.quantity = data.get('quantity')
+    #     self.discount = data.get('discount')
+    #
+    #     # todo check -> brand and category id
+    #     self.brand_id = data.get('brand_id')
+    #     self.category_id = data.get('category_id')
+    #
+    #     self.created_at = datetime.datetime.utcnow()
+    #     self.modified_at = datetime.datetime.utcnow()
+
+    def __init__(self, name, price, quantity, discount, brand_id, category_id):
         """
         Class constructor
         """
-        self.name = data.get('name')
-        self.price = data.get('price')
-        self.quantity = data.get('quantity')
-        self.discount = data.get('discount')
-        # todo
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+        self.discount = discount
+
+        # todo check -> brand and category id
+        self.brand_id = brand_id
+        self.category_id = category_id
+
         self.created_at = datetime.datetime.utcnow()
         self.modified_at = datetime.datetime.utcnow()
 
