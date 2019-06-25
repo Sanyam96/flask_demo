@@ -24,7 +24,7 @@ def delete_product(product_id):
     product = Product.Product.query.get(product_id)
     db.session.delete(product)
     db.session.commit()
-    return "product deleted"
+    return "product deleted, product id = {}".format(product_id)
 
 
 def get_products_sort_by(sort_by_param):

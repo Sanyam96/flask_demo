@@ -34,12 +34,12 @@ class Brand(db.Model):
     def __repr(self):
         return '<id {}>'.format(self.id)
 
-    @property
-    def serialize(self):
-        return {
-            'id': self.id,
-            'name': self.name
-        }
+    # @property
+    # def serialize(self):
+    #     return {
+    #         'id': self.id,
+    #         'name': self.name
+    #     }
 
 
 class BrandSchema(ma.Schema):
